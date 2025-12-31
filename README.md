@@ -1,36 +1,180 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  PASTEBIN LITE - FRONTEND README
 
-## Getting Started
+**Next.js 16 + React 19 + Tailwind CSS v4**
 
-First, run the development server:
+
+
+## OVERVIEW
+
+Pastebin Lite Frontend is a modern, responsive web application built with Next.js that allows users to:
+- Create text pastes with optional expiry time and view limits
+- Share pastes via unique URLs
+- View pastes with metadata (expiry time, remaining views)
+- Copy and download pastes
+
+**Current Status:**
+- Deployed on Vercel
+- Fully functional (when backend is working)
+- Responsive design
+
+
+## FEATURES
+
+### Create Paste
+- Text input area with character counter
+- Optional expiry time (in seconds)
+- Optional view limit
+- Form validation
+- Success/error alerts
+- Auto-redirect to paste after creation
+
+### View Paste
+- Display paste content
+- Show expiry time (if set)
+- Show remaining views (if limit set)
+- Copy to clipboard button
+- Download as file button
+- Share URL button
+- Warning alerts for expiring pastes
+
+### Design
+- Blue-purple gradient background
+- Clean white card layout
+- Responsive grid design
+- Mobile-friendly interface
+- Smooth transitions and animations
+- Tailwind CSS v4 styling
+
+---
+
+## TECH STACK
+
+**Core Framework:**
+- Next.js 16
+- React 19
+- JavaScript (ES6+)
+
+**Styling:**
+- Tailwind CSS v4
+- Custom CSS
+- Responsive design
+
+**HTTP Client:**
+- Axios for API requests
+- CORS enabled communication
+
+**Build Tools:**
+- npm/yarn
+- Vercel deployment
+
+---
+
+## PROJECT STRUCTURE
+
+```
+pastebin-frontend/
+├── app/
+│   ├── layout.js                 # Root layout
+│   ├── page.js                   # Home page (create paste)
+│   ├── p/
+│   │   └── [id]/
+│   │       └── page.js           # View paste page
+│   └── globals.css               # Global styles
+├── components/
+│   └── (future components)
+├── lib/
+│   └── api.js                    # Axios API client
+├── styles/
+│   └── (Tailwind config)
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+├── .env.local                    # Local environment variables
+├── .gitignore
+└── README.md
+```
+
+---
+
+## SETUP & INSTALLATION
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Git
+
+### Installation Steps
+
+```bash
+# 1. Clone the repository
+git clone <repository-url>
+cd pastebin-frontend
+
+# 2. Install dependencies
+npm install
+
+# 3. Create .env.local file
+cp .env.example .env.local
+
+# 4. Update environment variables
+# Edit .env.local with your backend URL
+
+# 5. Run locally
+npm run dev
+
+# 6. Open in browser
+# Visit: http://localhost:3000
+```
+
+---
+
+## ENVIRONMENT VARIABLES
+
+### Local Development (.env.local)
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+### Staging Deployment (Vercel Dashboard)
+
+```env
+NEXT_PUBLIC_API_URL=https://pastebin-backend-7t5x.vercel.app
+```
+
+### Production Deployment (Vercel Dashboard)
+
+```env
+NEXT_PUBLIC_API_URL=https://paste-bin-lite-backend-7t5x.vercel.app
+```
+
+**Note:** Variables prefixed with `NEXT_PUBLIC_` are exposed to the browser.
+
+---
+
+## RUNNING LOCALLY
+
+### Development Mode
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Starts dev server on `http://localhost:3000`
+- Hot reload enabled
+- Full debugging support
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+- Optimized production build
+- Runs on `http://localhost:3000`
 
-To learn more about Next.js, take a look at the following resources:
+### Deployed URL
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+https://pastebin-frontend-mauve.vercel.app/
+---
